@@ -1,0 +1,28 @@
+### GET (Basic)
+http://localhost:5000
+
+### GET (ALL)
+http://localhost:5000/api/cohorts
+
+### GET (by ID)
+http://localhost:5000/api/cohorts/1
+
+### POST
+POST http://localhost:5000/api/cohorts HTTP/1.1
+content-type: application/json
+
+{
+  "name": "TA" 
+}
+
+### PUT
+PUT http://localhost:5000/api/cohorts/3 HTTP/1.1
+content-type: application/json
+
+{
+  "name": "PM" 
+}
+
+### DELETE
+DELETE http://localhost:5000/api/cohorts/1
+
