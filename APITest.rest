@@ -5,7 +5,10 @@ http://localhost:5000
 http://localhost:5000/api/cohorts
 
 ### GET (by ID)
-http://localhost:5000/api/cohorts/6
+http://localhost:5000/api/cohorts/2
+
+### GET (students by cohort)
+http://localhost:5000/api/cohorts/1/students
 
 ### POST
 POST http://localhost:5000/api/cohorts HTTP/1.1
