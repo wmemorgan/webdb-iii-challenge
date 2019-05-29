@@ -8,7 +8,8 @@ module.exports = {
   findById,
   insert,
   update,
-  remove
+  remove,
+  innerJoin
 }
 
 function find(table) {
@@ -57,4 +58,10 @@ function remove(id, table) {
           'records' : 'record'} deleted` }
       }
     })
+}
+
+function innerJoin(parenTable, childTable, pk, fk, id) {
+  return db.from(parenTable)
+    .innerJoin(childTable, pk, fk)
+    .where(pk, id)
 }
