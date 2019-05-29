@@ -5,24 +5,24 @@ http://localhost:5000
 http://localhost:5000/api/cohorts
 
 ### GET (by ID)
-http://localhost:5000/api/cohorts/1
+http://localhost:5000/api/cohorts/6
 
 ### POST
 POST http://localhost:5000/api/cohorts HTTP/1.1
 content-type: application/json
 
 {
-  "name": "TA" 
+  "name": "Test Cohort #5" 
 }
 
 ### PUT
-PUT http://localhost:5000/api/cohorts/3 HTTP/1.1
+PUT http://localhost:5000/api/cohorts/6 HTTP/1.1
 content-type: application/json
 
 {
-  "name": "PM" 
+  "name": "Test Cohort #2" 
 }
 
 ### DELETE
-DELETE http://localhost:5000/api/cohorts/1
+DELETE http://localhost:5000/api/cohorts/6
 
