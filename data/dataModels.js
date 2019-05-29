@@ -54,14 +54,17 @@ function remove(id, table) {
     .del()
     .then(count => {
       if (count > 0) {
-        return { message: `${count} ${count > 1 ? 
-          'records' : 'record'} deleted` }
+        return {
+          message: `${count} ${count > 1 ?
+            'records' : 'record'} deleted`
+        }
       }
     })
 }
 
-function innerJoin(parenTable, childTable, pk, fk, id) {
+function innerJoin(parenTable, childTable, pk, fk, id, ...args) {
   return db.from(parenTable)
     .innerJoin(childTable, pk, fk)
     .where(pk, id)
+    .select(...args)
 }
