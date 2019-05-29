@@ -1,10 +1,8 @@
 const router = require('express').Router()
-const knex = require('knex')
-const dbConfig = require('../data/knexfile')
-const db = require('../data/dataModels')
-const knexdb = knex(dbConfig.development)
 
-// Load middleware
+const db = require('../data/dataModels')
+
+// Load Middleware
 const idBodyCheck = [requiredData, validateStudentId]
 
 // ==== GET ==== //
@@ -20,7 +18,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', validateStudentId, async (req, res) => {
   try {
-    let data = await knexdb.from('cohorts')
+    let data = await db.db.from('cohorts')
       .innerJoin('students', 'cohorts.id', 'students.cohort_id')
       .where('students.id', req.data.id)
       .select({id: 'students.id', name: 'students.name', cohort: 'cohorts.name'})
@@ -65,7 +63,7 @@ router.delete('/:id', validateStudentId, async (req, res) => {
   }
 })
 
-// Custom middleware
+// Custom Middleware
 async function validateStudentId(req, res, next) {
   try {
     let data = await db.findById(req.params.id, 'students')
