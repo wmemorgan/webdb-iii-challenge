@@ -4,6 +4,7 @@ const helmet = require('helmet')
 
 // Import resource routes
 const cohortsRoutes = require('../routes/cohortsRoutes')
+const studentsRoutes = require('../routes/studentsRoutes')
 
 const server = express()
 
@@ -14,6 +15,7 @@ server.use(logger('dev'))
 
 // Activate Routes
 server.use('/api/cohorts', cohortsRoutes)
+server.use('/api/students', studentsRoutes)
 server.use('/', (req, res) => {
   res.send(`<h1>Welcome to the Lambda App API</h1>`)
 })
