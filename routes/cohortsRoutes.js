@@ -20,6 +20,17 @@ router.get('/:id', validateCohortId, (req, res) => {
   res.json(req.data)
 })
 
+router.get('/:id/students', validateCohortId, async (req, res) => {
+ try {
+   let data = await db.innerJoin('cohorts', 
+   'students', 'cohorts.id', 'students.cohort_id', req.data.id)
+   res.json(data)
+ }
+ catch (err) {
+   res.status(500).json(err.message)
+ }
+})
+
 // ==== POST ==== //
 router.post('/', requiredData, async (req, res) => {
   try {
